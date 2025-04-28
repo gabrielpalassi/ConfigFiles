@@ -28,7 +28,8 @@ sudo dnf remove -y \
   eog \
   loupe \
   snapshot \
-  firefox
+  firefox \
+  gnome-system-monitor
 sudo dnf autoremove -y
 sudo dnf clean all
 
@@ -54,6 +55,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 echo "Installing common packages..."
 sudo -v ; curl https://rclone.org/install.sh | sudo bash
 flatpak install -y flathub \
+  net.nokyan.Resources \
   page.tesk.Refine \
   com.mattjakeman.ExtensionManager \
   org.gnome.Snapshot \
