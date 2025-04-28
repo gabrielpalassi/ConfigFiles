@@ -29,7 +29,8 @@ sudo dnf remove -y \
   loupe \
   snapshot \
   firefox \
-  gnome-system-monitor
+  gnome-system-monitor \
+  gnome-maps
 sudo dnf autoremove -y
 sudo dnf clean all
 
