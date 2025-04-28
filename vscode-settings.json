@@ -1,0 +1,113 @@
+{
+  // Git Settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+
+  // Diff Editor Settings
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // Window Settings
+  "window.commandCenter": true,
+  "window.title": "${rootNameShort}",
+  "window.menuBarVisibility": "compact",
+  "window.newWindowDimensions": "inherit",
+  "window.restoreWindows": "all",
+  "window.customTitleBarVisibility": "auto",
+  "window.titleBarStyle": "custom",
+
+  // Workbench Settings
+  "workbench.startupEditor": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.activityBar.location": "top",
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Flat Dark", // Requires Flat Dark Theme
+  "workbench.iconTheme": "symbols", // Requires Symbols Icon Theme
+  "workbench.productIconTheme": "fluent-icons", // Requires Fluent Icons Product Icon Theme
+
+  // Editor Settings
+  "editor.scrollbar.verticalScrollbarSize": 10,
+  "editor.scrollbar.horizontalScrollbarSize": 10,
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.renderLineHighlight": "gutter",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.4,
+  "editor.fontFamily": "JetBrains Mono", // Requires JetBrains Mono Font
+
+  // Explorer Settings
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // Terminal Settings
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "none",
+  "terminal.integrated.minimumContrastRatio": 1,
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
+
+  // Linux Flatpak Terminal Settings
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "host-spawn",
+      "args": ["bash"]
+    }
+  },
+
+  // Windows Terminal Settings
+  "terminal.integrated.defaultProfile.windows": "Git Bash", // Requires Git Bash
+
+  // Breadcrumbs Settings
+  "breadcrumbs.enabled": false,
+
+  // Update Settings
+  "update.showReleaseNotes": false,
+  "update.mode": "manual",
+
+  // Security Settings
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // File Associations
+  "files.associations": {
+    "*.scss": "postcss" // Requires PostCSS Language Support
+  },
+
+  // Prettier Settings
+  "prettier.singleAttributePerLine": true,
+  "prettier.bracketSameLine": true,
+
+  // Language-Specific Formatter Settings
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
