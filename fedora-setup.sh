@@ -30,7 +30,8 @@ sudo dnf remove -y \
   snapshot \
   firefox \
   gnome-system-monitor \
-  gnome-maps
+  gnome-maps \
+  yelp
 sudo dnf autoremove -y
 sudo dnf clean all
 
