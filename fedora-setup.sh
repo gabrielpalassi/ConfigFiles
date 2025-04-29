@@ -75,23 +75,46 @@ flatpak install -y flathub \
 
 # GPU-specific configurations
 echo "Configuring GPU drivers..."
-echo "Please select your GPU type:"
+echo "Please select your hardware configuration:"
 echo "1) Intel"
 echo "2) AMD"
-echo "3) NVIDIA"
-read -rp "Enter the number corresponding to your GPU: " gpu_choice
+echo "3) Intel + NVIDIA"
+echo "4) AMD + NVIDIA"
+echo "5) NVIDIA"
+echo "6) None of the above (skip GPU driver installation)"
+read -rp "Enter the number corresponding to your configuration: " gpu_choice
 
 case $gpu_choice in
   1)
-    echo "You selected Intel. Installing Intel VA driver..."
-    sudo dnf install -y libva-intel-driver
+    echo "You selected Intel. Installing Intel drivers..."
+    sudo dnf install -y intel-media-driver
     ;;
   2)
-    echo "You selected AMD. Installing AMD VA and VDPAU drivers..."
+    echo "You selected AMD. Installing AMD drivers..."
     sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
     sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
     ;;
   3)
+    echo "You selected Intel + NVIDIA. Installing Intel and NVIDIA drivers..."
+    sudo dnf install -y intel-media-driver akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
+    sudo dnf mark user akmod-nvidia -y
+    echo "Please wait for the kmod to build and reboot your system."
+    echo "If using Secure Boot, follow instructions to sign the NVIDIA kmod:"
+    echo "https://rpmfusion.org/Howto/NVIDIA"
+    echo "https://rpmfusion.org/Howto/Secure%20Boot"
+    ;;
+  4)
+    echo "You selected AMD + NVIDIA. Installing AMD and NVIDIA drivers..."
+    sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
+    sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+    sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
+    sudo dnf mark user akmod-nvidia -y
+    echo "Please wait for the kmod to build and reboot your system."
+    echo "If using Secure Boot, follow instructions to sign the NVIDIA kmod:"
+    echo "https://rpmfusion.org/Howto/NVIDIA"
+    echo "https://rpmfusion.org/Howto/Secure%20Boot"
+    ;;
+  5)
     echo "You selected NVIDIA. Installing NVIDIA drivers..."
     sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
     sudo dnf mark user akmod-nvidia -y
@@ -99,6 +122,9 @@ case $gpu_choice in
     echo "If using Secure Boot, follow instructions to sign the NVIDIA kmod:"
     echo "https://rpmfusion.org/Howto/NVIDIA"
     echo "https://rpmfusion.org/Howto/Secure%20Boot"
+    ;;
+  6)
+    echo "You selected None of the above. Skipping GPU driver installation."
     ;;
   *)
     echo "Invalid choice. Skipping GPU driver installation."
