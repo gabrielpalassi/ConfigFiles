@@ -5,7 +5,7 @@ sudo dnf upgrade --refresh -y
 sudo dnf autoremove -y
 
 # Update rclone
-sudo rclone self-update
+sudo rclone selfupdate
 
 # Update Flatpak packages and clean up
 flatpak update -y
