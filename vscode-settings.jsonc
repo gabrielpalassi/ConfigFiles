@@ -29,7 +29,7 @@
   "editor.scrollbar.verticalScrollbarSize": 10,
   "editor.scrollbar.horizontalScrollbarSize": 10,
   "editor.smoothScrolling": true,
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
