@@ -9,6 +9,7 @@ defaultyes=True
 EOF
 
 # Uninstall unwanted packages
+sudo -v
 echo "Removing unwanted packages..."
 sudo dnf remove -y \
   libreoffice* \
@@ -36,6 +37,7 @@ sudo dnf autoremove -y
 sudo dnf clean all
 
 # Set up RPM Fusion repositories
+sudo -v
 echo "Setting up RPM Fusion repositories..."
 sudo dnf install -y \
   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
@@ -47,6 +49,7 @@ sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
 # Install adw-gtk3 theme
+sudo -v
 echo "Installing adw-gtk3 theme..."
 sudo dnf install -y adw-gtk3-theme
 flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
@@ -54,8 +57,10 @@ gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 # Install common packages
+sudo -v
 echo "Installing common packages..."
-sudo -v ; curl https://rclone.org/install.sh | sudo bash
+sudo dnf install -y dunstify
+curl https://rclone.org/install.sh | sudo bash
 flatpak install -y flathub \
   net.nokyan.Resources \
   page.tesk.Refine \
