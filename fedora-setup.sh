@@ -59,8 +59,11 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 # Install common packages
 sudo -v
 echo "Installing common packages..."
-sudo dnf install -y dunstify
 curl https://rclone.org/install.sh | sudo bash
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf check-update
+sudo dnf install -y code dunstify
 flatpak install -y flathub \
   net.nokyan.Resources \
   page.tesk.Refine \
@@ -72,7 +75,6 @@ flatpak install -y flathub \
   org.mozilla.firefox \
   org.gnome.Geary \
   com.rtosta.zapzap \
-  com.visualstudio.code \
   org.onlyoffice.desktopeditors \
   org.gimp.GIMP \
   de.haeckerfelix.Fragments \
@@ -88,7 +90,7 @@ echo "3) Intel + NVIDIA"
 echo "4) AMD + NVIDIA"
 echo "5) NVIDIA"
 echo "6) None of the above (skip GPU driver installation)"
-read -rp "Enter the number corresponding to your configuration: " gpu_choice
+read -p "Enter the number corresponding to your configuration: " gpu_choice
 
 case $gpu_choice in
   1)
