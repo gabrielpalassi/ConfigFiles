@@ -15,6 +15,8 @@ OnFailure=rclone-icloud-failure-notify.service
 [Service]
 Type=simple
 ExecStart=/usr/bin/rclone mount iCloudDrive: "%h/iCloud Drive" --vfs-cache-mode full --vfs-cache-poll-interval 30s --dir-cache-time 30s
+TimeoutStartSec=20
+ExecStop=/bin/fusermount -u "%h/iCloud Drive"
 
 [Install]
 WantedBy=default.target
@@ -43,16 +45,16 @@ ACTION=$(dunstify --appname="iCloud Drive" \
                   --urgency=critical \
                   --icon=dialog-error \
                   --action="restart,Restart Service" \
-                  --action="config,Open Rclone Config" \
+                  --action="reconnect,Reconnect Remote" \
                   "Mount Failed" \
-                  "Restart the service or open rclone config to troubleshoot")
+                  "Restart the service or reconnect to renew the session")
 
 case "$ACTION" in
   "restart")
     systemctl --user restart rclone-icloud.service
     ;;
-  "config")
-    ptyxis -- bash -c 'echo -ne "\033]0;Rclone Config\007"; rclone config'
+  "reconnect")
+    ptyxis -- bash -c 'echo -ne "\033]0;Rclone Config\007"; rclone config reconnect iCloudDrive:'
     ;;
 esac
 EOF
