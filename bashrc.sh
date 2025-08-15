@@ -21,7 +21,7 @@ export PATH
 # User specific aliases and functions
 #
 
-alias update='~/Repositórios/ConfigFiles/update-system.sh'
+alias update='~/Repos/ConfigFiles/update-system.sh'
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
         if [ -f "$rc" ]; then
