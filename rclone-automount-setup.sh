@@ -54,7 +54,8 @@ case "$ACTION" in
     systemctl --user restart rclone-icloud.service
     ;;
   "reconnect")
-    ptyxis -- bash -c 'echo -ne "\033]0;Rclone Config\007"; rclone config reconnect iCloudDrive:'
+    ptyxis -- bash -c 'echo -ne "\033]0;Rclone Config\007"; rclone --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" config reconnect iCloudDrive:'
+    systemctl --user restart rclone-icloud.service
     ;;
 esac
 EOF
