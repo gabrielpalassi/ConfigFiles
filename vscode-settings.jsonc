@@ -39,6 +39,7 @@
   "editor.fontLigatures": true,
   "editor.lineHeight": 1.4,
   "editor.fontFamily": "JetBrains Mono", // Requires JetBrains Mono Font
+  "editor.wordWrap": "on",
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
 
