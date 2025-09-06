@@ -120,5 +120,6 @@
   "extensions.ignoreRecommendations": true,
 
   // NPM Settings
-  "npm.packageManager": "bun"
+  "npm.packageManager": "bun",
+  "npm.scriptRunner": "bun"
 }
