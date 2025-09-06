@@ -60,26 +60,26 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 sudo -v
 echo "Installing common packages..."
 curl https://rclone.org/install.sh | sudo bash
+curl -fsSL https://bun.sh/install | bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf check-update
-sudo dnf install -y code dunstify
+sudo dnf install -y code dunstify node
 flatpak install -y flathub \
-  net.nokyan.Resources \
-  page.tesk.Refine \
-  com.mattjakeman.ExtensionManager \
-  org.gnome.Snapshot \
-  org.gnome.Loupe \
-  org.gnome.Decibels \
-  org.gnome.Showtime \
-  org.mozilla.firefox \
-  org.gnome.Geary \
-  com.rtosta.zapzap \
-  org.onlyoffice.desktopeditors \
-  org.gimp.GIMP \
+  com.brave.Browser \
   de.haeckerfelix.Fragments \
+  org.gnome.Showtime \
   com.discordapp.Discord \
-  com.mojang.Minecraft
+  net.nokyan.Resources \
+  org.onlyoffice.desktopeditors \
+  com.mattjakeman.ExtensionManager \
+  org.gimp.GIMP \
+  org.prismlauncher.PrismLauncher \
+  com.rtosta.zapzap \
+  org.gnome.Decibels \
+  page.tesk.Refine \
+  com.stremio.Stremio \
+  org.gnome.font-viewer
 
 # GPU-specific configurations
 echo "Configuring GPU drivers..."
