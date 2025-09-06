@@ -1,31 +1,33 @@
 {
-  // Git Settings
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.openRepositoryInParentFolders": "always",
+  //
+  // Appearance & Theme
+  //
 
-  // Diff Editor Settings
-  "diffEditor.ignoreTrimWhitespace": false,
-
-  // Window Settings
-  "window.commandCenter": true,
-  "window.title": "${rootNameShort}",
-  "window.menuBarVisibility": "compact",
-  "window.restoreWindows": "all",
-  "window.customTitleBarVisibility": "auto",
-  "window.titleBarStyle": "custom",
-
-  // Workbench Settings
-  "workbench.startupEditor": "none",
-  "workbench.layoutControl.enabled": false,
-  "workbench.editor.editorActionsLocation": "hidden",
-  "workbench.activityBar.location": "top",
-  "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Flat Dark", // Requires Flat Dark Theme
   "workbench.iconTheme": "symbols", // Requires Symbols Icon Theme
   "workbench.productIconTheme": "fluent-icons", // Requires Fluent Icons Product Icon Theme
 
+  //
+  // Window & Layout
+  //
+
+  "window.commandCenter": false,
+  "window.title": "${rootNameShort}",
+  "window.restoreWindows": "all",
+  "window.customTitleBarVisibility": "auto",
+  "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "compact",
+  "workbench.startupEditor": "none",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.activityBar.location": "top",
+  "workbench.sideBar.location": "right",
+  "workbench.navigationControl.enabled": false,
+  "workbench.layoutControl.enabled": false,
+
+  //
   // Editor Settings
+  //
+
   "editor.scrollbar.verticalScrollbarSize": 10,
   "editor.scrollbar.horizontalScrollbarSize": 10,
   "editor.smoothScrolling": true,
@@ -37,12 +39,23 @@
   "editor.fontLigatures": true,
   "editor.lineHeight": 1.4,
   "editor.fontFamily": "JetBrains Mono", // Requires JetBrains Mono Font
+  "breadcrumbs.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
 
-  // Explorer Settings
+  //
+  // Explorer & Files
+  //
+
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.scss": "postcss" // Requires PostCSS Language Support
+  },
 
+  //
   // Terminal Settings
+  //
+
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
   "terminal.integrated.minimumContrastRatio": 1,
@@ -56,7 +69,7 @@
     "docker-desktop"
   ],
 
-  // Linux Flatpak Terminal Settings
+  // Linux Flatpak Terminal
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.profiles.linux": {
     "bash": {
@@ -65,29 +78,25 @@
     }
   },
 
-  // Windows Terminal Settings
+  // Windows Terminal
   "terminal.integrated.defaultProfile.windows": "Git Bash", // Requires Git Bash
 
-  // Breadcrumbs Settings
-  "breadcrumbs.enabled": false,
+  //
+  // Git Settings
+  //
 
-  // Update Settings
-  "update.showReleaseNotes": false,
-  "update.mode": "manual",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
 
-  // Security Settings
-  "security.workspace.trust.untrustedFiles": "open",
+  //
+  // Formatting & Code Quality
+  //
 
-  // File Associations
-  "files.associations": {
-    "*.scss": "postcss" // Requires PostCSS Language Support
-  },
-
-  // Prettier Settings
   "prettier.singleAttributePerLine": true,
   "prettier.bracketSameLine": true,
 
-  // Language-Specific Formatter Settings
+  // Language-Specific Formatters
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -113,13 +122,26 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
 
-  // Copilot Settings
+  //
+  // Package Management
+  //
+
+  "npm.packageManager": "bun",
+  "npm.scriptRunner": "bun",
+
+  //
+  // AI & Copilot
+  //
+
+  "chat.commandCenter.enabled": false,
   "github.copilot.nextEditSuggestions.enabled": true,
 
-  // Notification Settings
-  "extensions.ignoreRecommendations": true,
+  //
+  // System & Security
+  //
 
-  // NPM Settings
-  "npm.packageManager": "bun",
-  "npm.scriptRunner": "bun"
+  "update.showReleaseNotes": false,
+  "update.mode": "manual",
+  "security.workspace.trust.untrustedFiles": "open",
+  "extensions.ignoreRecommendations": true
 }
