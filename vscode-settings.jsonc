@@ -108,5 +108,17 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // Copilot Settings
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  // Notification Settings
+  "extensions.ignoreRecommendations": true,
+
+  // NPM Settings
+  "npm.packageManager": "bun"
 }
