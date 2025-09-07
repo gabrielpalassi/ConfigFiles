@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # Create systemd user and iCloud Drive directories
+echo "[Info] Creating necessary directories..."
 mkdir -p ~/.config/systemd/user/
 mkdir -p ~/iCloud Drive
 
 # Create rclone-icloud.service
+echo "[Info] Creating rclone iCloud Drive mount service..."
 cat > ~/.config/systemd/user/rclone-icloud.service <<EOF
 [Unit]
 Description=Mount iCloudDrive with rclone
@@ -23,6 +25,7 @@ WantedBy=default.target
 EOF
 
 # Create rclone-icloud-failure-notify.service
+echo "[Info] Creating rclone iCloud Drive failure notification service..."
 cat > ~/.config/systemd/user/rclone-icloud-failure-notify.service <<EOF
 [Unit]
 Description=Notify user of rclone iCloud Drive mount failure
@@ -38,6 +41,7 @@ WantedBy=default.target
 EOF
 
 # Create rclone-icloud-failure-notify.sh script
+echo "[Info] Creating rclone iCloud Drive failure notification script..."
 cat > ~/.config/systemd/user/rclone-icloud-failure-notify.sh <<EOF
 #!/bin/bash
 
@@ -61,11 +65,13 @@ esac
 EOF
 
 # Reload systemd user daemon
+echo "[Info] Reloading systemd user daemon..."
 systemctl --user daemon-reload
 
 # Enable and start the rclone-icloud service
+echo "[Info] Enabling and starting rclone iCloud Drive mount service..."
 systemctl --user enable rclone-icloud.service
 systemctl --user start rclone-icloud.service
 
-echo "iCloud Drive mount service installed and started."
+echo "[Info] iCloud Drive mount service installed and started."
 
