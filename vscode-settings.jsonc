@@ -1,11 +1,11 @@
 {
   //
-  // Appearance & Theme
+  // Themes
   //
 
-  "workbench.colorTheme": "Flat Dark", // Requires Flat Dark Theme
   "workbench.iconTheme": "symbols", // Requires Symbols Icon Theme
   "workbench.productIconTheme": "fluent-icons", // Requires Fluent Icons Product Icon Theme
+  "workbench.colorTheme": "Flat Dark",
 
   //
   // Window & Layout
@@ -31,7 +31,9 @@
   "editor.scrollbar.verticalScrollbarSize": 10,
   "editor.scrollbar.horizontalScrollbarSize": 10,
   "editor.smoothScrolling": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 60,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
@@ -39,7 +41,7 @@
   "editor.fontLigatures": true,
   "editor.lineHeight": 1.4,
   "editor.fontFamily": "JetBrains Mono", // Requires JetBrains Mono Font
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
 
@@ -94,41 +96,51 @@
   // Formatting & Code Quality
   //
 
-  "prettier.singleAttributePerLine": true,
-  "prettier.bracketSameLine": true,
+  "prettier.singleAttributePerLine": true, // Requires Prettier
+  "prettier.bracketSameLine": true, // Requires Prettier
 
-  // Language-Specific Formatters
+  //
+  // Language-Specific Settings
+  //
+
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
+    "editor.tabSize": 4
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
+    "prettier.tabWidth": 4
   },
 
   //
   // Package Management
   //
 
-  "npm.packageManager": "bun",
-  "npm.scriptRunner": "bun",
+  "npm.packageManager": "bun", // Requires Bun
+  "npm.scriptRunner": "bun", // Requires Bun
 
   //
   // AI & Copilot
@@ -144,5 +156,44 @@
   "update.showReleaseNotes": false,
   "update.mode": "manual",
   "security.workspace.trust.untrustedFiles": "open",
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "telemetry.feedback.enabled": false,
+
+  //
+  // Python & Jupyter
+  //
+
+  "jupyter.interactiveWindow.textEditor.executeSelection": true, // Requires Jupyter
+  "jupyter.interactiveWindow.creationMode": "perFile", // Requires Jupyter
+  "jupyter.askForKernelRestart": false, // Requires Jupyter
+  "editor.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
+  "notebook.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
+  "python.analysis.typeCheckingMode": "basic", // Requires Python Extension
+
+  //
+  // Project Manager
+  //
+
+  "projectManager.sortList": "Saved", // Requires Project Manager
+
+  //
+  // Markdown PDF Export
+  //
+
+  "markdown-pdf.displayHeaderFooter": false, // Requires Markdown PDF
+  "markdown-pdf.margin.bottom": "1.5cm", // Requires Markdown PDF
+  "markdown-pdf.margin.left": "1.5cm", // Requires Markdown PDF
+  "markdown-pdf.margin.right": "1.5cm", // Requires Markdown PDF
+  "markdown-pdf.highlightStyle": "vs2015.css", // Requires Markdown PDF
+
+  //
+  // Office Viewer
+  //
+
+  "vscode-office.editorTheme": "Auto", // Requires Office Viewer
+  "vscode-office.previewCodeHighlight.style": "github", // Requires Office Viewer
+  "workbench.editorAssociations": {
+    "*.md": "default",
+    "*.markdown": "default"
+  }
 }
