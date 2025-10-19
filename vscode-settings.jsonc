@@ -5,7 +5,7 @@
 
   "workbench.iconTheme": "symbols", // Requires Symbols Icon Theme
   "workbench.productIconTheme": "fluent-icons", // Requires Fluent Icons Product Icon Theme
-  "workbench.colorTheme": "Flat Dark",
+  "workbench.colorTheme": "Flat Dark", // Requires Flat Dark Theme
 
   //
   // Window & Layout
@@ -71,17 +71,6 @@
     "vscode-insiders",
     "docker-desktop"
   ],
-
-  // Linux Flatpak Terminal
-  "terminal.integrated.defaultProfile.linux": "bash",
-  "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "host-spawn",
-      "args": ["bash"]
-    }
-  },
-
-  // Windows Terminal
   "terminal.integrated.defaultProfile.windows": "Git Bash", // Requires Git Bash
 
   //
@@ -130,9 +119,7 @@
   },
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.tabSize": 4,
-    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
-    "prettier.tabWidth": 4
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
   },
 
   //
@@ -168,12 +155,7 @@
   "jupyter.askForKernelRestart": false, // Requires Jupyter
   "editor.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
   "notebook.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
-  "python.analysis.typeCheckingMode": "basic", // Requires Python Extension
-
-  //
-  // Project Manager
-  //
-
+  "python.analysis.typeCheckingMode": "basic",
   "projectManager.sortList": "Saved", // Requires Project Manager
 
   //
@@ -195,5 +177,11 @@
   "workbench.editorAssociations": {
     "*.md": "default",
     "*.markdown": "default"
-  }
+  },
+
+  //
+  //  autoDocstring
+  //
+
+  "autoDocstring.docstringFormat": "numpy" // Requires autoDocstring
 }
