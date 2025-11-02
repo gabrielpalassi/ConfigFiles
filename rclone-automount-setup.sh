@@ -63,6 +63,7 @@ case "$ACTION" in
     ;;
 esac
 EOF
+chmod +x ~/.config/systemd/user/rclone-icloud-failure-notify.sh
 
 # Reload systemd user daemon
 echo "[Info] Reloading systemd user daemon..."
