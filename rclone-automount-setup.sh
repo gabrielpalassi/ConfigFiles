@@ -3,7 +3,7 @@
 # Create systemd user and iCloud Drive directories
 echo "[Info] Creating necessary directories..."
 mkdir -p ~/.config/systemd/user/
-mkdir -p ~/iCloud Drive
+mkdir -p ~/iCloud\ Drive
 
 # Create rclone-icloud.service
 echo "[Info] Creating rclone iCloud Drive mount service..."
@@ -58,12 +58,27 @@ case "$ACTION" in
     systemctl --user restart rclone-icloud.service
     ;;
   "reconnect")
-    ptyxis -- bash -c 'echo -ne "\033]0;Rclone Config\007"; rclone --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" config reconnect iCloudDrive:'
-    systemctl --user restart rclone-icloud.service
+    ~/.config/systemd/user/rclone-icloud-reconnect.sh
     ;;
 esac
 EOF
 chmod +x ~/.config/systemd/user/rclone-icloud-failure-notify.sh
+
+# Create rclone-icloud-reconnect.sh script
+echo "[Info] Creating rclone iCloud Drive reconnect script..."
+cat > ~/.config/systemd/user/rclone-icloud-reconnect.sh <<EOF
+#!/bin/bash
+
+echo -ne "\033]0;Rclone Config\007"
+while true; do
+  rclone --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" config reconnect iCloudDrive: && break
+  echo "[Error] Reconnect failed. Retrying..."
+done
+
+echo "[Info] Reconnect successful. Restarting service..."
+systemctl --user restart rclone-icloud.service
+EOF
+chmod +x ~/.config/systemd/user/rclone-icloud-reconnect.sh
 
 # Reload systemd user daemon
 echo "[Info] Reloading systemd user daemon..."
