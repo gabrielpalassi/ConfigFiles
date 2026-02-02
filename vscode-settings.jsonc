@@ -52,7 +52,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
-    "*.scss": "postcss" // Requires PostCSS Language Support
+    "*.scss": "postcss", // Requires PostCSS Language Support
   },
 
   //
@@ -69,7 +69,7 @@
     "mailto",
     "vscode",
     "vscode-insiders",
-    "docker-desktop"
+    "docker-desktop",
   ],
   "terminal.integrated.defaultProfile.windows": "Git Bash", // Requires Git Bash
 
@@ -93,33 +93,36 @@
   //
 
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter", // Requires Black Formatter
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // Requires Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Requires Prettier
+  },
+  "[plaintext]": {
+    "editor.wordWrap": "on",
   },
 
   //
@@ -135,6 +138,9 @@
 
   "chat.commandCenter.enabled": false,
   "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.tools.terminal.autoApprove": {
+    "mv": true,
+  },
 
   //
   // System & Security
@@ -145,6 +151,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "extensions.ignoreRecommendations": true,
   "telemetry.feedback.enabled": false,
+  "telemetry.telemetryLevel": "off",
 
   //
   // Python & Jupyter
@@ -176,12 +183,20 @@
   "vscode-office.previewCodeHighlight.style": "github", // Requires Office Viewer
   "workbench.editorAssociations": {
     "*.md": "default",
-    "*.markdown": "default"
+    "*.markdown": "default",
   },
 
   //
   //  autoDocstring
   //
 
-  "autoDocstring.docstringFormat": "numpy" // Requires autoDocstring
+  "autoDocstring.docstringFormat": "numpy", // Requires autoDocstring
+
+  //
+  // Other
+  //
+
+  "sqldeveloper.sqlHistory.historyLimit": 500, // Requires Oracle SQL Developer Extension
+  "sqldeveloper.telemetry.enabled": false, // Requires Oracle SQL Developer Extension
+  "settingsSync.ignoredExtensions": ["oracle.sql-developer"],
 }
