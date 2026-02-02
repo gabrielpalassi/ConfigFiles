@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update DNF configurations
-echo "[Info] Updating DNF configurations..."
-sudo tee /etc/dnf/dnf.conf > /dev/null <<EOF
+echo "[INFO] Updating DNF configurations..."
+sudo tee /etc/dnf/dnf.conf > /dev/null <<'EOF'
 [main]
 max_parallel_downloads=10
 defaultyes=True
@@ -11,7 +11,7 @@ EOF
 
 # Uninstall unwanted packages
 sudo -v
-echo "[Info] Removing unwanted packages..."
+echo "[INFO] Removing unwanted packages..."
 sudo dnf remove -y \
   libreoffice* \
   evince \
@@ -39,7 +39,7 @@ sudo dnf clean all
 
 # Set up RPM Fusion repositories
 sudo -v
-echo "[Info] Setting up RPM Fusion repositories..."
+echo "[INFO] Setting up RPM Fusion repositories..."
 sudo dnf install -y \
   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -51,7 +51,7 @@ sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=Pack
 
 # Install adw-gtk3 theme
 sudo -v
-echo "[Info] Installing adw-gtk3 theme..."
+echo "[INFO] Installing adw-gtk3 theme..."
 sudo dnf install -y adw-gtk3-theme
 flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
@@ -59,7 +59,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 # Install common packages
 sudo -v
-echo "[Info] Installing common packages..."
+echo "[INFO] Installing common packages..."
 curl https://rclone.org/install.sh | sudo bash
 curl -fsSL https://bun.sh/install | bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -83,7 +83,7 @@ flatpak install -y flathub \
   org.gnome.font-viewer
 
 # GPU-specific configurations
-echo "[Info] Configuring GPU drivers..."
+echo "[INFO] Configuring GPU drivers..."
 echo "Please select your hardware configuration:"
 echo "1) Intel"
 echo "2) AMD"

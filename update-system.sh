@@ -4,31 +4,31 @@
 sudo -v
 
 # Update Flatpak packages and clean up
-echo "[Info] Updating Flatpak packages..."
+echo "[INFO] Updating Flatpak packages..."
 flatpak update -y
 flatpak uninstall --unused -y
 
 # Update system packages and clean up
 sudo -v
-echo "[Info] Updating system packages..."
+echo "[INFO] Updating system packages..."
 sudo dnf upgrade --refresh -y
 sudo dnf autoremove -y
 
 # Update individual applications
 sudo -v
-echo "[Info] Updating rclone..."
+echo "[INFO] Updating rclone..."
 sudo rclone selfupdate
-echo "[Info] Updating npm..."
+echo "[INFO] Updating npm..."
 sudo npm install -g npm@latest
-echo "[Info] Updating npm packages..."
+echo "[INFO] Updating npm packages..."
 sudo npm update -g
-echo "[Info] Updating bun..."
+echo "[INFO] Updating bun..."
 bun upgrade
-echo "[Info] Updating pip..."
+echo "[INFO] Updating pip..."
 pip install --upgrade pip
 
 # Update firmware
 sudo -v
-echo "[Info] Updating firmware..."
+echo "[INFO] Updating firmware..."
 sudo fwupdmgr refresh --force
 sudo fwupdmgr update -y
