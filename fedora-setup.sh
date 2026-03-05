@@ -140,4 +140,4 @@ case $gpu_choice in
     ;;
 esac
 
-echo "Setup complete!"
+echo "[INFO] Setup complete!"

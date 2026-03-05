@@ -5,6 +5,10 @@ echo "[INFO] Creating necessary directories..."
 mkdir -p ~/.config/systemd/user/
 mkdir -p ~/iCloud\ Drive
 
+# Copy iCloud Drive icon
+echo "[INFO] Copying iCloud Drive icon..."
+cp "$(dirname "$(realpath "$0")")/icloud.png" ~/.config/systemd/user/icloud.png
+
 # Create rclone-icloud.service
 echo "[INFO] Creating rclone iCloud Drive mount service..."
 cat > ~/.config/systemd/user/rclone-icloud.service <<'EOF'
@@ -45,10 +49,11 @@ echo "[INFO] Creating rclone iCloud Drive failure notification script..."
 cat > ~/.config/systemd/user/rclone-icloud-failure-notify.sh <<'EOF'
 #!/bin/bash
 
-ACTION=$(dunstify --appname="iCloud Drive" \
-                  --urgency=critical \
-                  --action="restart,Restart Service" \
-                  --action="reconnect,Reconnect Remote" \
+ACTION=$(dunstify -a "iCloud Drive" \
+                  -i "$HOME/.config/systemd/user/icloud.png" \
+                  -u critical \
+                  -A "restart,Restart Service" \
+                  -A "reconnect,Reconnect Remote" \
                   "Mount Failed" \
                   "Restart the service or reconnect to renew the session")
 
